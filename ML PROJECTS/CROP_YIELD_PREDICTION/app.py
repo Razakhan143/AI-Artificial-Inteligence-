@@ -4,8 +4,8 @@ import sklearn
 import pickle
 
 #loading models
-dtr = pickle.load(open('AI projects\project_dtr.pkl','rb'))
-preprocessor = pickle.load(open('AI projects\project_preprocessor.pkl','rb'))
+dtr = pickle.load(open('ML PROJECTS\CROP_YIELD_PREDICTION\project_dtr.pkl','rb'))
+preprocessor = pickle.load(open('ML PROJECTS\CROP_YIELD_PREDICTION\project_preprocessor.pkl','rb'))
 #creating flask app
 app = Flask(__name__)
 @app.route('/')
