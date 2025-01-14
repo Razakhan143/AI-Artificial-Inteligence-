@@ -30,6 +30,6 @@ def predict():
     return render_template('project_web.html',prediction=prediction)
 
 
-#python main
+#python main function
 if __name__=='__main__':
     app.run(debug=True)
