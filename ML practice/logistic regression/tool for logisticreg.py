@@ -10,12 +10,18 @@ from sklearn.metrics import accuracy_score
 
 def load_initial_graph(dataset,ax):
     if dataset == "Binary":
-        df = sns.load_dataset('iris')
-        X, y =df.iloc[:,:-1],df.iloc[:,-1:]
+        data = sns.load_dataset('iris')
+        X=data.iloc[:,:-1]
+        y=data.iloc[:,-1:]
         return X,y
     elif dataset == "Multiclass":
-        df=pd.read_csv('Life Expectancy Data (1).csv')
-        X, y =df.iloc[:,:-1],df.iloc[:,-1:]
+        data=pd.read_csv('ML practice\logistic regression\Life Expectancy Data (1).csv')
+        data.drop(['Country','Status'],axis=1,inplace=True)
+        data.dropna(inplace=True)
+        data['survive'] = (data['Life expectancy '] <= 75).astype(int)
+        data['survive'] = (data['Life expectancy '] > 75).astype(int)
+        X=data.iloc[:,:-1]
+        y=data['survive']
         return X,y
 
 def draw_meshgrid():
@@ -83,3 +89,6 @@ if st.sidebar.button('Run Algorithm'):
     plt.ylabel("Col2")
     orig = st.pyplot(fig)
     st.subheader("Accuracy for Decision Tree  " + str(round(accuracy_score(y_test, y_pred), 2)))
+    
+    
+    #streamlit run "C:\Users\tesla\OneDrive\Desktop\AI-Artificial-Inteligence-\ML practice\logistic regression\tool for logisticreg.py"
