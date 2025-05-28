@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import plotly.figure_factory as ff
 
 # Load data
-df = pd.read_csv(r'dataset\Olympics_2024_.csv')
+df = pd.read_csv(r'Olympics_2024_.csv')
 df=Preprocessor.preprocessor(df)
 
 # Page configuration
